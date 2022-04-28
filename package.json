@@ -4,21 +4,24 @@
   "description": "Pnpm monorepo boilerplate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm run clean && pnpm --filter ./packages build",
+    "watch": "pnpm -r --filter ./packages --parallel run watch",
+    "test": "pnpm --filter ./packages test",
+    "check": "pnpm --filter ./packages check",
+    "lint": "pnpm --filter ./packages lint",
+    "clean": "rimraf packages/*/lib"
   },
   "author": "",
   "license": "ISC",
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run test"
-    }
-  },
   "devDependencies": {
+    "@types/node": "^17.0.29",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
+    "esbuild": "^0.14.38",
     "eslint": "^8.14.0",
     "husky": "^7.0.4",
     "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
     "typescript": "^4.6.3"
   }
 }

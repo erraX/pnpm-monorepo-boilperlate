@@ -2,9 +2,12 @@
   "name": "main",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node scripts/build.js && tsc --emitDeclarationOnly --outDir dist",
+    "check": "tsc --noEmit",
+    "lint": "eslint --ext .ts ./src",
+    "test": "echo \"WARN: no test specified\""
   },
   "keywords": [],
   "author": "",
